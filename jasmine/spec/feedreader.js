@@ -71,7 +71,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-         
+
         it('menu changes visibility when clicked', function() {
             document.getElementsByClassName('menu-icon-link')[0].click()
             expect(menu.classList.length).toBe(0)
@@ -91,11 +91,40 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+    describe('Initial Entries', function() {
+        let feed = document.getElementsByClassName('feed')[0]
+
+        beforeEach(function(done) {
+            loadFeed(0, done)
+        });
+
+        it('there is atleast 1 entry in the feed when loadFeed() finsihes', function() {
+           expect(feed.children.length).toBeGreaterThan(0)
+        });
+        
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-
-        /* TODO: Write a test that ensures when a new feed is loaded
+    /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
-         */
+    */
+    describe('New Feed Selection', function() {    
+        let oldContent;
+
+        beforeEach(function(done) {
+            let loadNewFeed = () => {
+                oldContent = document.getElementsByClassName('feed')[0].firstElementChild.textContent
+                loadFeed(2, done)
+            }
+            loadFeed(1, loadNewFeed)
+     
+        });
+
+        it('new feed content is loaded by loadfeed()', function(done) {
+            let newContent = document.getElementsByClassName('feed')[0].firstElementChild.textContent
+            expect(oldContent).not.toBe(newContent)
+            done()
+        });
+    });
 }());
