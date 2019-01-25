@@ -97,7 +97,7 @@ $(function() {
     */
     describe('New Feed Selection', function() {    
         let oldContent;
-
+//@description Checks whats the old content in the feed is
         beforeEach(function(done) {
             let loadNewFeed = () => {
                 oldContent = document.getElementsByClassName('feed')[0].firstElementChild.textContent
@@ -106,7 +106,7 @@ $(function() {
             loadFeed(1, loadNewFeed)
      
         });
-
+//@description makes sure the new feed content is not the same as the old feed content
         it('new feed content is loaded by loadfeed()', function(done) {
             let newContent = document.getElementsByClassName('feed')[0].firstElementChild.textContent
             expect(oldContent).not.toBe(newContent)
