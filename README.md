@@ -12,7 +12,9 @@ Using Jasmine test suites to test an RSS feed
 
 ## To Run
 
+1. 
 ```git clone https://github.com/curriecode/feedreader-testing```
+2. Open the projects index.html in your browser
 
 # Contributing
 
