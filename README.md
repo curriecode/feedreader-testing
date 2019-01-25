@@ -16,4 +16,4 @@ Using Jasmine test suites to test an RSS feed
 
 # Contributing
 
-Starter code provided by (Udacity)[https://github.com/udacity/frontend-nanodegree-feedreader]
+Starter code provided by [Udacity](https://github.com/udacity/frontend-nanodegree-feedreader)
